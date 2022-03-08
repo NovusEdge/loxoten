@@ -1,7 +1,6 @@
 #ifndef CORRUPTOR_H
 #define CORRUPTOR_H "corruptor.h"
 
-
 const char* __USAGE_HELP = "USAGE: \n\
     corruptor [files] [flags]";
 
