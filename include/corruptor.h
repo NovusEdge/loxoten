@@ -2,7 +2,7 @@
 #define CORRUPTOR_H "corruptor.h"
 
 const char* __USAGE_HELP = "USAGE: \n\
-    corruptor [files] [flags]";
+    corruptor [flags] [files]";
 
 const char* __OPTIONS = "OPTIONS: \n\
     -V  --version       Print the version corruptor-cli \n\
@@ -15,8 +15,8 @@ const char* __OPTIONS = "OPTIONS: \n\
         --show-errors   Makes errors visible even if -q option is provided.\n";
 
 
-const char* __FULL_HELP = "USAGE: \n\
-    corruptor [files] [flags]\n\
+const char* FULL_HELP = "USAGE: \n\
+    corruptor [flags] [files]\n\
     \n\
     OPTIONS: \n\
         -V  --version       Print the version corruptor-cli \n\
@@ -27,5 +27,14 @@ const char* __FULL_HELP = "USAGE: \n\
                                                                      \n\
         -h  --help          Prints help information\n\
             --show-errors   Makes errors visible even if -q option is provided.\n";
+
+
+const char* VALID_FLAGS[] = {
+    "-V", "--version",
+    "-v", "--verbose",
+    "-q", "--quiet",
+    "-h", "--help",
+    "--show-errors",
+};
 
 #endif // corruptor.h
