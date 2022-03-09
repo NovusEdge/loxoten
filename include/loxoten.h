@@ -44,4 +44,13 @@ const char* VALID_FLAGS[] = {
     "-n", "--num-bytes",
 };
 
+// Function signatures
+unsigned char *generate_random_bytes (size_t num_bytes);
+void           corrupt_file(FILE* file, size_t num_bytes);
+int            write_random_bytes_to_file(const char* filename, unsigned int num_bytes, bool overwrite);
+bool           check_for_help_option(int aargc, const char* aargv[]);
+bool           is_valid_flag(const char* flag);
+bool           is_flag(const char* flag);
+bool           check_if_file_exists(const char* filename);
+
 #endif // loxoten.h

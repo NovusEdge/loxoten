@@ -16,14 +16,6 @@
 #include "loxoten.h"
 #include "fancy_console.h"
 
-unsigned char *generate_random_bytes (size_t num_bytes);
-void            corrupt_file(FILE* file, size_t num_bytes);
-int            write_random_bytes_to_file(const char* filename, unsigned int num_bytes, bool overwrite);
-bool           check_for_help_option(int aargc, const char* aargv[]);
-bool           is_valid_flag(const char* flag);
-bool           is_flag(const char* flag);
-bool           check_if_file_exists(const char* filename);
-
 // Command line flags...
 bool quiet_flag     = false,
      verbose_flag   = false;
@@ -79,12 +71,12 @@ int main(int argc, const char* argv[]) {
 
     for(int i = flag_end_pos; i < argc; i++) {
         if( !check_if_file_exists(argv[i]) ) {
-            if (!quiet_flag){
+            if ( !quiet_flag || verbose_flag ){
                 fprintf(stderr, "%s[-] E: File %s does not exist!%s\n", ANSI_COLOR_RED, argv[i], ANSI_COLOR_RESET);
             }
             exit(EXIT_FAILURE);
         }
-        FILE* fd = fopen(argv[i], "wb");
+        FILE* fd = fopen(argv[i], "rb+");
 
         if( !quiet_flag || verbose_flag ) {
             printf("%s[*] Attempting to corrupt file: %s%s\n\n", ANSI_COLOR_YELLOW, argv[i], ANSI_COLOR_RESET);
@@ -103,6 +95,8 @@ int main(int argc, const char* argv[]) {
 */
 void corrupt_file(FILE* file, size_t num_bytes){
     unsigned char* random_bytes = generate_random_bytes(num_bytes);
+    srand(255);
+    fseek(file, rand()%num_bytes+2, SEEK_SET);
 
     for(int i = 0; i < num_bytes; i++ ) {
         fwrite(random_bytes, sizeof(unsigned char), 1, file);
