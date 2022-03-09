@@ -19,4 +19,4 @@
 #define CROSSED             "\033[9m"
 
 
-#endif // fancycon.h
+#endif // fancy_console.h

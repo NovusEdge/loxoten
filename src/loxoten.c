@@ -1,7 +1,7 @@
 /*
     Copyright 2022 All Rights Reserved
-    file-corruptor: A Platform Specific File corrupting program.
-    @file: corruptor.c
+    file-corruptor: A Platform Specific file corrupting program.
+    @file: loxoten.c
     @author: Aliasgar Khimani (NovusEdge)
     @copyright: CC-BY-4.0
 */
@@ -13,8 +13,7 @@
 #include<time.h>
 #include<unistd.h>
 
-#include "corruptor.h"
-#include "errors.h"
+#include "loxoten.h"
 #include "fancy_console.h"
 
 unsigned char *generate_random_bytes (size_t num_bytes);
@@ -49,7 +48,7 @@ int main(int argc, const char* argv[]) {
         }
 
         if( strncmp(argv[i], "-V", 2) == 0 || strncmp(argv[i], "--version", 9) == 0 ) {
-            printf("corruptor version: %s\n", VERSION);
+            printf("loxoten version: %s\n", VERSION);
             exit(EXIT_SUCCESS);
         }
 
