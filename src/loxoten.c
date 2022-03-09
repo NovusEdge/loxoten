@@ -20,11 +20,8 @@
 bool quiet_flag     = false,
      verbose_flag   = false;
 
-long int nb = 100;
-
 
 int main(int argc, const char* argv[]) {
-
     int flag_end_pos = 1;
 
     // Parsing command line flags.
@@ -35,7 +32,7 @@ int main(int argc, const char* argv[]) {
         }
 
         if( is_flag(argv[i]) && !is_valid_flag(argv[i]) ) {
-            fprintf(stderr, "E: Invalid Flag: %s\n\n%s\n", argv[i], __OPTIONS);
+            fprintf(stderr, "E: Invalid Flag: %s\n\n%s\n", argv[i], __FLAGS);
             exit(EXIT_FAILURE);
         }
 
@@ -53,20 +50,6 @@ int main(int argc, const char* argv[]) {
             quiet_flag = true;
             flag_end_pos++;
         }
-
-        if( strncmp(argv[i], "-n", 2) == 0 || strncmp(argv[i], "--num-bytes", 11) == 0 ) {
-            char* c;
-            long int temp = strtol(argv[i+1], &c, 10);
-            if(*c) {
-                if ( !quiet_flag ) {
-                    fprintf(stderr, "%s[-] E: Invalid argument format for -n%s\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
-                    }
-                exit(EXIT_FAILURE);
-            } else {
-                nb = temp;
-            }
-            i++;
-        }
     }
 
     for(int i = flag_end_pos; i < argc; i++) {
@@ -82,7 +65,9 @@ int main(int argc, const char* argv[]) {
             printf("%s[*] Attempting to corrupt file: %s%s\n\n", ANSI_COLOR_YELLOW, argv[i], ANSI_COLOR_RESET);
         }
 
-        corrupt_file(fd, nb);
+        fseek(fd, 0L, SEEK_END); int filesize = ftell(fd); rewind(fd);
+        corrupt_file(fd, filesize);
+
     }
     exit(EXIT_SUCCESS);
 }
@@ -95,8 +80,6 @@ int main(int argc, const char* argv[]) {
 */
 void corrupt_file(FILE* file, size_t num_bytes){
     unsigned char* random_bytes = generate_random_bytes(num_bytes);
-    srand(255);
-    fseek(file, rand()%num_bytes+2, SEEK_SET);
 
     for(int i = 0; i < num_bytes; i++ ) {
         fwrite(random_bytes, sizeof(unsigned char), 1, file);
@@ -148,7 +131,7 @@ bool check_for_help_option(int aargc, const char* aargv[]){
 */
 bool is_valid_flag(const char* flag) {
     bool check = false;
-    for (size_t i = 0; i < 9; i++) {
+    for (size_t i = 0; i < 8; i++) {
         if( strcmp(flag, VALID_FLAGS[i]) == 0 ) { check = true; }
     }
     return check;

@@ -15,25 +15,21 @@
 const char* __USAGE_HELP = "USAGE: \n\
     loxoten [flags] [files]";
 
-const char* __OPTIONS = "OPTIONS: \n\
+const char* __FLAGS = "FLAGS: \n\
     -V  --version       Print the version loxoten-cli \n\
     -v  --verbose       Use verbose output\n\
     -q  --quiet         Use quiet mode to suppress output.\n\
-    -h  --help          Prints help information\n\
-    -n  --num-bytes     Specifies the number of bytes to write to the given\n\
-                        files.\n";
+    -h  --help          Prints help information\n";
 
 
 const char* FULL_HELP = "USAGE: \n\
     loxoten [flags] [files]\n\
                             \n\
-OPTIONS: \n\
+FLAGS: \n\
         -V  --version       Print the version loxoten-cli \n\
         -v  --verbose       Use verbose output\n\
         -q  --quiet         Use quiet mode to suppress output.\n\
-        -h  --help          Prints help information\n\
-        -n  --num-bytes     Specifies the number of bytes to write to the given\n\
-                            files.\n";
+        -h  --help          Prints help information\n";
 
 
 const char* VALID_FLAGS[] = {
@@ -41,7 +37,6 @@ const char* VALID_FLAGS[] = {
     "-v", "--verbose",
     "-q", "--quiet",
     "-h", "--help",
-    "-n", "--num-bytes",
 };
 
 // Function signatures
