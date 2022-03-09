@@ -48,7 +48,7 @@ OPTIONS:
 For more information, check the project wiki
 
 ## License :scroll:
-This project is licensed under the CC-BY-4.0 License. Please see [License File](LICENSE) for more information.
+This project is licensed under the MPLv2.0 License. Please see [License File](LICENSE) for more information.
 
 
 ***Name Inspiration***: Loxosceles tenochtitlan
