@@ -3,7 +3,7 @@
     file-corruptor: A Platform Specific file corrupting program.
     @file: loxoten.h
     @author: Aliasgar Khimani (NovusEdge)
-    @copyright: CC-BY-4.0
+    @copyright: MPL-2.0
 */
 
 #ifndef LOXOTEN_H
@@ -46,6 +46,6 @@ int            write_random_bytes_to_file(const char* filename, unsigned int num
 bool           check_for_help_option(int aargc, const char* aargv[]);
 bool           is_valid_flag(const char* flag);
 bool           is_flag(const char* flag);
-bool           check_if_file_exists(const char* filename);
+bool           file_exists(const char* filename);
 
 #endif // loxoten.h
