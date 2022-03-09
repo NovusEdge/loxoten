@@ -43,8 +43,6 @@ OPTIONS:
         -v  --verbose       Use verbose output
         -q  --quiet         Use quiet mode to suppress output.
         -h  --help          Prints help information
-        -n  --num-bytes     Specifies the number of bytes to write to the given
-                            files.
 ```
 
 For more information, check the project wiki
