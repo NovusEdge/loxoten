@@ -6,6 +6,7 @@ BIN=bin
 SRC=src
 
 corruptor:
+	if [ ! -d $(BIN) ]; then mkdir $(BIN); fi
 	$(CC) $(CFLAGS)$(INC)/ $(SRC)/corruptor.c -o $(BIN)/corruptor
 
 
