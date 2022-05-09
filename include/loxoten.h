@@ -1,6 +1,6 @@
 /*
     Copyright 2022 All Rights Reserved
-    file-corruptor: A Platform Specific file corrupting program.
+    loxoten: A Platform Specific file corrupting program.
     @file: loxoten.h
     @author: Aliasgar Khimani (NovusEdge)
     @copyright: MPL-2.0

@@ -1,3 +1,11 @@
+/*
+    Copyright 2022 All Rights Reserved
+    loxoten: A Platform Specific file corrupting program.
+    @file: fancy_console.h
+    @author: Aliasgar Khimani (NovusEdge)
+    @copyright: MPL-2.0
+*/
+
 #ifndef FANCY_CONSOLE_H
 #define FANCY_CONSOLE_H "fancy_console.h"
 
