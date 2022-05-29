@@ -5,7 +5,7 @@ INC=include
 BIN=bin
 SRC=src
 
-corruptor:
+loxoten:
 	if [ ! -d $(BIN) ]; then mkdir $(BIN); fi
 	$(CC) $(CFLAGS)$(INC)/ $(SRC)/loxoten.c -o $(BIN)/loxoten
 
